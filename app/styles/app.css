@@ -1,0 +1,11 @@
+#main-content {
+  margin-top: 50px;
+}
+
+.new-item {
+  cursor: pointer;
+}
+
+.new-item:hover {
+  box-shadow: black 1px 1px 3px -2px;
+}

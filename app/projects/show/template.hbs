@@ -1,0 +1,37 @@
+<div class="ui segment">
+  <div class="ui vertical segment">
+    <div class="ui header">
+      Informacion del proyecto
+    </div>
+    <div class="ui form">
+      <div class="field">
+        <label for="">Nombre</label>
+        {{input value=model.name autocomplete="off"}}
+      </div>
+
+      <div class="ui primary button" {{action 'save' model}}>Guardar</div>
+    </div>
+  </div>
+  
+  <div class="ui vertical segment">
+    <div class="ui header">
+      Tareas
+    </div>
+
+    <div class="ui relaxed celled list">
+      {{#each model.tasks as |task|}}
+        <div class="ui action fluid input" {{action 'updateTask' task on="keyUp"}}>
+          {{input value=task.name}}
+          <button class="ui icon button" {{action 'deleteTask' task}}>
+            <i class="trash large icon"></i>
+          </button>
+        </div>
+      {{/each}}
+
+      <div class="item new-item" {{action 'newTask' model}}>Nueva tarea</div>
+    </div>
+
+    {{outlet}}
+  </div>
+</div>
+

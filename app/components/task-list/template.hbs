@@ -1,0 +1,12 @@
+<div class="ui relaxed celled list">
+  {{#each tasks as |task|}}
+    <div class="ui action fluid input">
+      {{input value=task.name}}
+      <button class="ui icon button" {{action 'delete' task}}>
+        <i class="trash large icon"></i>
+      </button>
+    </div>
+  {{/each}}
+
+  <div class="item new-item" {{action 'new'}}>Nueva tarea</div>
+</div>

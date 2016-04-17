@@ -1,0 +1,31 @@
+
+<div class="six wide column">
+  <div class="ui segment">
+    <div class="ui header">
+      Lista de proyectos
+      <div class="ui circular blue label">{{model.length}}</div>
+    </div>
+    <div class="ui vertical fluid menu">
+      {{#each model as |project|}}
+        
+        {{#link-to 'projects.show' project class="item"}}
+          <div class="ui action fluid input">
+            {{input value=project.name}}
+            <button class="ui icon button" {{action 'delete' project}}>
+              <i class="trash large icon"></i>
+            </button>
+          </div>
+        {{/link-to}}
+        
+      {{/each}}
+
+      <div class="item">
+        <div class="ui fluid green button" {{action 'new'}}>Nuevo</div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="ten wide column">
+  {{outlet}}
+</div>
