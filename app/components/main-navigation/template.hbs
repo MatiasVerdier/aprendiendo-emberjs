@@ -1,7 +1,7 @@
 <nav class="ui menu">
-  <a class="item">
-    Home
-  </a>
+  {{#link-to 'index' class="item"}}
+    Inicio
+  {{/link-to}}
   {{#link-to 'projects' class="item"}}
     Proyectos
   {{/link-to}}
@@ -10,10 +10,11 @@
   {{/link-to}}
   <div class="right menu">
     <div class="item">
-      <div class="ui transparent icon input">
-        <input type="text" placeholder="Search...">
-        <i class="search link icon"></i>
-      </div>
+      {{#if session.isAuthenticated}}
+        <div class="ui basic red button" {{action 'logout'}}>Logout</div>
+      {{else}}
+        {{#link-to 'login' class="ui basic green button"}}Login{{/link-to}}
+      {{/if}}
     </div>
   </div>
 </nav>

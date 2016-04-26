@@ -9,16 +9,21 @@ export default Ember.Route.extend({
       model.save()
     },
     newTask (model) {
+      let project = this.store.peekRecord('project', model.id)
       let newTask = this.store.createRecord('task', {
-        project: model
+        project: project
       })
-      newTask.save()
+      newTask.save().then(() => {
+        project.save()
+      })
     },
     updateTask (model) {
-      model.save()
+      let task = this.store.peekRecord('task', model.id)
+      task.save()
     },
     deleteTask (model) {
-      model.destroyRecord()
+      let task = this.store.peekRecord('task', model.id)
+      task.destroyRecord()
     }
   }
 })

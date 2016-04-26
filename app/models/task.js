@@ -6,5 +6,5 @@ export default DS.Model.extend({
   createdAt: DS.attr('number', {
     defaultValue () { return new Date().getTime() }
   }),
-  project: DS.belongsTo('project')
+  project: DS.belongsTo('project', {async: true})
 })

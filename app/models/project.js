@@ -5,5 +5,6 @@ export default DS.Model.extend({
   createdAt: DS.attr('number', {
     defaultValue () { return new Date().getTime() }
   }),
-  tasks: DS.hasMany('task')
+  owner: DS.belongsTo('user', {async: true}),
+  tasks: DS.hasMany('task', {async: true})
 })

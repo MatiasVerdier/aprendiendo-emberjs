@@ -10,6 +10,7 @@ Router.map(function () {
     this.route('show', {path: ':id'})
   })
   this.route('tasks', {path: ':projectId/:id'})
+  this.route('login')
 })
 
 export default Router
